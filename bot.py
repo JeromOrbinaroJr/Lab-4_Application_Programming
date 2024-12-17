@@ -1,12 +1,13 @@
 import asyncio
 from aiogram import Bot, Dispatcher
 from config import BOT_TOKEN
-from handlers import commands
+from handlers import commands, messages
 
 bot = Bot(token=BOT_TOKEN)
 dp = Dispatcher()
 
 commands.register_handler(dp)
+messages.register_handler(dp)
 
 async def main():
     await bot.delete_webhook(drop_pending_updates=True)
