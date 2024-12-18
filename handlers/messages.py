@@ -19,7 +19,6 @@ async def handle_event_name(message: Message, state: FSMContext):
         await message.answer("⚠ Пожалуйста, введите корректное название мероприятия.")
         return
 
-    # Check if film is found
     films = get_film_by_name(title_event)
     if films:
         response_text = "🎬 Найденные фильмы:\n\n"
@@ -27,7 +26,6 @@ async def handle_event_name(message: Message, state: FSMContext):
             response_text += f"📌 *Название*: {film['title']}\n📖 *Описание*: {film['description']}\n📅 *Год*: {film['year']}\n\n"
         await message.answer(response_text, parse_mode="Markdown")
     else:
-        # Check if performance is found
         performances = get_performance_by_title(title_event)
         if performances:
             response_text = "🎭 Найденные спектакли:\n\n"

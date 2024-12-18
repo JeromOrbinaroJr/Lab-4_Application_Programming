@@ -13,6 +13,7 @@ async def start_bot(message: Message):
             [InlineKeyboardButton(text="Получить рекомендации", callback_data="recommend")],
         ]
     )
+
     await message.answer(
         "Привет! Я помогу найти информацию о фильмах и спектаклях.\n\nВыберите действие:",
         reply_markup=keyboard

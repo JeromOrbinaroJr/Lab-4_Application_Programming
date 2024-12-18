@@ -15,8 +15,7 @@ async def recommend_start(message: Message, state: FSMContext):
     keyboard = ReplyKeyboardMarkup(
         keyboard=[
             [KeyboardButton(text="Комедия"), KeyboardButton(text="Драма")],
-            [KeyboardButton(text="Боевик"), KeyboardButton(text="Мелодрама")],
-            [KeyboardButton(text="Не важно")]
+            [KeyboardButton(text="Боевик"), KeyboardButton(text="Мелодрама")]
         ],
         resize_keyboard=True
     )
@@ -27,7 +26,8 @@ async def recommend_start(message: Message, state: FSMContext):
 async def recommend_choose_genre(message: Message, state: FSMContext):
     genre = message.text.strip().lower()
 
-    allowed_genres = ["комедия", "драма", "боевик", "мелодрама", "не важно"]
+    allowed_genres = ["комедия", "драма", "боевик", "мелодрама"]
+
     if genre not in allowed_genres:
         await message.answer("⚠ Пожалуйста, выберите жанр из предложенных вариантов.")
         return

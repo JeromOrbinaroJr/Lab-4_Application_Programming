@@ -38,7 +38,7 @@ def get_three_performances():
         print(f"Ошибка при запросе: {e}")
         return []
 
-    soup = BeautifulSoup(response.text, "html.parser")
+    soup = BeautifulSoup(response.text)
     performances = []
 
     for performance_block in soup.find_all("div", class_="recommendation-item_text-block compilation-tile__text-block")[:3]:

@@ -13,6 +13,7 @@ async def handle_menu(callback: CallbackQuery, state: FSMContext):
     elif callback.data == "recommend":
         from handlers.recommend import recommend_start
         await recommend_start(callback.message, state)
+
     await callback.answer()
 
 @router.callback_query(lambda c: c.data == "show_info_event")

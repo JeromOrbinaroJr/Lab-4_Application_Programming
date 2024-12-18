@@ -39,7 +39,7 @@ def get_three_films():
         print(f"Ошибка при запросе: {e}")
         return []
 
-    soup = BeautifulSoup(response.text, "html.parser")
+    soup = BeautifulSoup(response.text)
     films = []
 
     for film_block in soup.find_all("div", class_="movieItem_info")[:3]:
@@ -64,7 +64,7 @@ def get_films_by_genre(genre):
         print(f"Ошибка при запросе: {e}")
         return []
 
-    soup = BeautifulSoup(response.text, "html.parser")
+    soup = BeautifulSoup(response.text)
     films = []
 
     for film_block in soup.find_all("div", class_="movieItem_info"):
